@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Typing Practice</title>
+
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  padding: 40px;
+  background: #f5f5f5;
+}
+
+.box {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.correct {
+  color: green;
+  font-weight: bold;
+}
+
+.wrong {
+  color: red;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+  <h2>✍️ تمرين الكتابة</h2>
+  <p>اكتب الجملة التالية:</p>
+
+  <h3 id="sentence">I like tea</h3>
+
+  <input type="text" id="inputBox" placeholder="اكتب هنا..." />
+
+  <p id="feedback"></p>
+</div>
+
+<script>
+const sentence = document.getElementById("sentence").innerText;
+const inputBox = document.getElementById("inputBox");
+const feedback = document.getElementById("feedback");
+
+inputBox.addEventListener("input", () => {
+  if(inputBox.value === sentence) {
+    feedback.innerHTML = "✅ ممتاز!";
+    feedback.className = "correct";
+  } else {
+    feedback.innerHTML = "❌ حاول مرة أخرى";
+    feedback.className = "wrong";
+  }
+});
+</script>
+
+</body>
+</html>
